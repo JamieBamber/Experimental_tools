@@ -71,8 +71,8 @@ void set_binary_bh_Aij(FArrayBox &multigrid_vars_box, const IntVect &iv,
     // the Bowen York params
     RealVect J1 = {0.0, 0.0, a_params.bh1_spin};
     RealVect J2 = {0.0, 0.0, a_params.bh2_spin};
-    RealVect P1 = {0.0, a_params.bh1_momentum, 0.0};
-    RealVect P2 = {0.0, a_params.bh2_momentum, 0.0};
+    RealVect P1 = a_params.bh1_momentum;
+    RealVect P2 = a_params.bh2_momentum;
 
     // set the Aij vars
     multigrid_vars_box(iv, c_A11_0) =

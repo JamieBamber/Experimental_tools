@@ -53,8 +53,8 @@ class PoissonParameters
     Real bh2_bare_mass;
     Real bh1_spin;
     Real bh2_spin;
-    Real bh1_momentum;
-    Real bh2_momentum;
+    RealVect bh1_momentum;
+    RealVect bh2_momentum;
     Real bh1_offset;
     Real bh2_offset;
 };

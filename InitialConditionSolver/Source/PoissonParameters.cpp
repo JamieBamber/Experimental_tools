@@ -52,8 +52,14 @@ void getPoissonParameters(PoissonParameters &a_params)
     pp.get("bh2_spin", a_params.bh2_spin);
     pp.get("bh1_offset", a_params.bh1_offset);
     pp.get("bh2_offset", a_params.bh2_offset);
-    pp.get("bh1_momentum", a_params.bh1_momentum);
-    pp.get("bh2_momentum", a_params.bh2_momentum);
+    std::vector<Real> tmp1, tmp2;
+    pp.getarr("bh1_momentum", tmp1, 0, 3);
+    pp.getarr("bh2_momentum", tmp2, 0, 3);
+    for(int i=0; i<3;i++)
+    {
+        a_params.bh1_momentum[i] = tmp1[i];
+        a_params.bh2_momentum[i] = tmp2[i];
+    }
 
     if (abs(a_params.bh1_bare_mass) > 0.0 || abs(a_params.bh2_bare_mass) > 0.0)
     {
