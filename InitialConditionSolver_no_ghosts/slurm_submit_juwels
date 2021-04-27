@@ -11,7 +11,7 @@
 # for OpenMP/hybrid jobs only
 #SBATCH --output=std_out.txt
 #SBATCH --error=std_error.txt
-#SBATCH --time=1:00:00
+#SBATCH --time=2:00:00
 #SBATCH --partition=devel
 
 # "batch" for normal use or "devel" for up to 8 nodes up to 2 hours
@@ -22,8 +22,7 @@
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
 application=Main_PoissonSolver3d.Linux.64.mpiicpc.ifort.OPT.MPI.OPENMPCC.PETSC.ex
-#Main_PoissonSolver3d.Linux.64.mpiicpc.ifort.OPT.MPI.OPENMPCC.PETSC.ex
-location=/p/home/jusers/bamber1/juwels/Experimental_tools/InitialConditionSolver_with_ghosts/
+location=/p/home/jusers/bamber1/juwels/Experimental_tools/InitialConditionSolver/
 
 srun ${location}${application} params.txt
 

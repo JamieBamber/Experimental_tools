@@ -13,12 +13,14 @@ alpha = 1.0
 beta  = -1.0
 
 # AMR grid params - grid length and number of cells by direction
+#L = 100.0
+#N = 64 64 64
 L = 512
 N = 64 64 64
 # number of AMR refinement levels is max_level + 1
-max_level    = 9
+max_level    = 6
 # Threshold for AMR refinement, based on magnitude of rhs
-refine_threshold = 0.1
+refine_threshold = 0.05
 #min box size
 block_factor = 16
 #max box size
@@ -30,17 +32,19 @@ buffer_size  = 3
 # Setup multigrid params
 numMGsmooth = 4 # number of GSRB smooths before and after MG coarsening
 #preCondSolverDepth = 1
+num_mg     = 1
 numMGIterations = 2 #this is the number of MG v-cycles in the preconditioner
 max_iterations = 100 #max number of solver iterations
 max_NL_iterations = 6 #non linear outside loop iterations
 tolerance  = 1.0e-10  #solver tolerance for declaring convergence
 hang       = 1.0e-11  #solver tolerance for deciding when we're hung
-verbosity = 1 # higher number means more verbose output
+verbosity = 2 # higher number means more verbose output
 
 # how to average face-centered coefficients to coarser multigrid levels
 #coefficient_average_type = arithmetic
 coefficient_average_type = harmonic
 
+# Boundary conditions for domain-boundary faces
 # 0 for non periodic, 1 for periodic (enforces same for all)
 is_periodic = 0
 # if not periodic, then what?
@@ -69,37 +73,36 @@ vars_parity = 0             #psi
 
 
 # Q: "Simple, change the gravitational constant of the Universe"
-G_Newton = GVALUE
+G_Newton = 0.0000000001
 
 # scalar field input params
-phi_amplitude = 1.0
-phi_mu = MUVALUE
-phi_wavelength=100 # this is a useless parameter for flat phi which will need to be removed
+phi_amplitude = 1
+phi_mu = 1
+phi_wavelength = 1000
 
 # initial conditions for Binary BH spacetimes
-
 # (can be with or without periodic BCs,
 #  and in presence of scalar field)
 # if you don't want BHs just set masses to zero
 
 #BH1
-bh1_bare_mass = 0.48847892320123
+bh1_bare_mass = 0.5
 # spin about z axis (this is J_z)
-bh1_spin = 0.0
+bh1_spin = 0.1
 # boost in y direction (this is P_y)
-bh1_momentum_x = -0.0841746
-bh1_momentum_y = -0.000510846
+bh1_momentum_x = -0.05
+bh1_momentum_y = 0.0
 # offset from center in x direction
+bh1_offset_y = 10.0
 bh1_offset_x = 0.0
-bh1_offset_y = 6.10679
 
 #BH2
-bh2_bare_mass = 0.48847892320123
+bh2_bare_mass = 0.5
 # spin about z axis (this is J_z)
-bh2_spin = 0.0
+bh2_spin = 0.1
 # boost in y direction (this is P_y)
-bh2_momentum_x = 0.0841746
-bh2_momentum_y = 0.000510846
+bh2_momentum_x = 0.05
+bh2_momentum_y = 0.0
 # offset from center in x direction
+bh2_offset_y = -10.0
 bh2_offset_x = 0.0
-bh2_offset_y = -6.10679

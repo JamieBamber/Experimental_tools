@@ -2,7 +2,7 @@
 #
 # this copy is for the Skylake nodes
 
-work_dir=/p/home/jusers/bamber1/juwels/Experimental_tools/InitialConditionSolver_with_ghosts
+work_dir=/p/home/jusers/bamber1/juwels/Experimental_tools/InitialConditionSolver
 
 L=512
 N1=64
@@ -31,8 +31,7 @@ run_list=(
 for run in "${run_list[@]}"
 do
   	cd $work_dir
-	# extract parameters
-        
+	# extract parameters                                                                                                                                                                      
         val="$run[0]"; mu="${!val}"
         val="$run[1]"; delay="${!val}"
         val="$run[2]"; dt_mult="${!val}"
@@ -42,17 +41,14 @@ do
         val="$run[6]"; m="${!val}"
         val="$run[7]"; Al="${!val}"
 
-        #if (( $l == 0 ))
-        #then
-        #   subdir=${run}_mu${mu}_delay${delay}_G${G}_ratio${ratio}
-        #else
-        #   subdir=${run}_mu${mu}_delay${delay}_G${G}_ratio${ratio}_l${l}_m${m}_Al${Al}
-        #fi
+        if (( $l == 0 ))
+        then
+           subdir=${run}_mu${mu}_delay${delay}_G${G}_ratio${ratio}
+        else
+           subdir=${run}_mu${mu}_delay${delay}_G${G}_ratio${ratio}_l${l}_m${m}_Al${Al}
+        fi
 
-	max_level=9
-	
-	name=my_code_with_ghosts_${run}_no_Ham_Mom_vars_OPT_${max_level}_levels
-	#name=${subdir}_initial_conditions
+	name=${subdir}_initial_conditions
 	
         echo ${name} "initial conditions"
         new_dir_path=/p/scratch/pra116/bamber1/Initial_Conditions_Solver/${name}
@@ -66,8 +62,7 @@ do
        	cd ${new_dir_path}
         # add the location of the new directory to the params file
         sed -i "s|JOBNAME|${run}IC|" slurm_submit
-	sed -i "s|MXLEVEL|${max_level}|" params.txt
-	sed -i "s|RUNNAME|${run}_${max_level}_levels|" params.txt
+	sed -i "s|RUNNAME|${run}|" params.txt
 	sed -i "s|GVALUE|${G}|" params.txt
 	sed -i "s|MUVALUE|${mu}|" params.txt
 	sed -i "s|LSPACE|${L}|" params.txt

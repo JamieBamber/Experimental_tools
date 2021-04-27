@@ -30,7 +30,7 @@ run0034=(0.5 0 0.25 0.000000000001 1 0 0 0) # G = 10^{-12}
 run0035=(0.5 0 0.25 0.00000000000001 1 0 0 0) # G = 10^{-14}
 
 run_list=(
-    run0035
+    run0023
 )
 
 for run in "${run_list[@]}"
@@ -54,7 +54,7 @@ do
         fi
 
 	#name=${subdir}_initial_conditions
-	name=public_code_with_ghosts_${run}_no_Ham_Mom_vars
+	name=public_code_with_ghosts_test_no_Ham_Mom_vars_OPT_Katy_test_v3
 	
         echo ${name} "initial conditions"
         new_dir_path=/p/scratch/pra116/bamber1/Initial_Conditions_Solver/${name}
@@ -63,7 +63,7 @@ do
 
        	cp slurm_submit_juwels ${new_dir_path}/slurm_submit
 	#params_file=params_ratio${ratio}.txt
-	params_file=params_ratio1.txt
+	params_file=params_Katy_test_v3.txt
 	cp ${params_file} ${new_dir_path}/params.txt
         
        	cd ${new_dir_path}

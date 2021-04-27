@@ -90,15 +90,19 @@ bh1_bare_mass = 0.5
 # spin about z axis (this is J_z)
 bh1_spin = 0.1
 # boost in y direction (this is P_y)
-bh1_momentum = 0.05
+bh1_momentum_x = -0.05
+bh2_momentum_y = 0.0
 # offset from center in x direction
-bh1_offset = 10.0
+bh1_offset_y = 10.0
+bh1_offset_x = 0.0
 
 #BH2
 bh2_bare_mass = 0.5
 # spin about z axis (this is J_z)
 bh2_spin = 0.1
 # boost in y direction (this is P_y)
-bh2_momentum = -0.05
+bh2_momentum_x = 0.05
+bh2_momentum_y = 0.0
 # offset from center in x direction
-bh2_offset = -10.0
+bh2_offset_y = -10.0
+bh2_offset_x = 0.0
