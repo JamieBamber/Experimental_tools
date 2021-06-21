@@ -1,6 +1,6 @@
 #!/bin/bash -l
-#SBATCH -A dp174
-#SBATCH -p cosma6-pauper
+#SBATCH -A dp092
+#SBATCH -p cosma7
 #SBATCH --nodes 6
 ### NB cosma6 has 16 cores per node so product of these = 16
 #SBATCH --ntasks-per-node=4
@@ -21,3 +21,4 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export location=/cosma/home/dp174/dc-bamb1/Experimental_tools/InitialConditionSolver_with_ghosts/
 export application=Main_PoissonSolver3d.Linux.64.mpiicpc.ifort.OPT.MPI.OPENMPCC.ex
 mpirun -np $SLURM_NTASKS ${location}${application} params.txt
+

@@ -12,7 +12,7 @@
 alpha = 1.0
 beta  = -1.0
 
-filename_base = /p/project/pra116/bamber1/BinaryBHScalarField/RUNNAME_IC
+filename_base = /cosma6/data/dp174/dc-bamb1/GRChombo_data/BinaryBHSF/RUNNAME_IC
 
 # AMR grid params - grid length and number of cells by direction
 L = 512
@@ -20,11 +20,11 @@ N = 64 64 64
 # number of AMR refinement levels is max_level + 1
 max_level    = MXLEVEL
 # Threshold for AMR refinement, based on magnitude of rhs
-refine_threshold = 0.05
+refine_threshold = 0.1
 #min box size
 block_factor = 16
 #max box size
-max_grid_size = 16
+max_grid_size = 32
 # how aggressively to regrid
 fill_ratio   = 0.5
 buffer_size  = 3

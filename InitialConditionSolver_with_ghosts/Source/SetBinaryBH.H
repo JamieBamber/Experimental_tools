@@ -105,7 +105,7 @@ Real set_binary_bh_psi(const RealVect &loc, const PoissonParameters &a_params)
     RealVect loc_bh2 = loc;
     Real rbh2 = get_bh_radius(loc_bh2, a_params.bh2_offset);
 
-    return (m1 / rbh1 + m2 / rbh2);
+    return (m1 / (2*rbh1) + m2 / (2*rbh2));
 }
 
 #endif /* SETBINARYBH_HPP */
